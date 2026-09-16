@@ -1,0 +1,49 @@
+<section class="tarjeta">
+  <h2>Reservar Sala de Estudio</h2>
+  <p style="color: #718096; margin-bottom: 1rem;">Capacidad máxima por sala: de 1 a 6 personas.</p>
+
+  <% if (error) { %>
+    <div class="alerta-error" role="alert">
+      <p><%= error %></p>
+    </div>
+  <% } %>
+
+  <form action="/reservas" method="post">
+    <div class="campo">
+      <label for="responsable">Nombre del responsable:</label>
+      <input type="text" id="responsable" name="responsable" value="<%= valores?.responsable || '' %>" required>
+    </div>
+
+    <div class="campo">
+      <label for="email">Correo electrónico institucional:</label>
+      <input type="text" id="email" name="email" value="<%= valores?.email || '' %>" required>
+    </div>
+
+    <div class="campo">
+      <label for="sala">Sala solicitada:</label>
+      <select id="sala" name="sala" required>
+        <option value="Sala Silenciosa A" <%= valores?.sala === 'Sala Silenciosa A' ? 'selected' : '' %>>Sala Silenciosa A</option>
+        <option value="Sala Grupal B" <%= valores?.sala === 'Sala Grupal B' ? 'selected' : '' %>>Sala Grupal B</option>
+        <option value="Sala Multimedia C" <%= valores?.sala === 'Sala Multimedia C' ? 'selected' : '' %>>Sala Multimedia C</option>
+      </select>
+    </div>
+
+    <div class="campo">
+      <label for="personas">Cantidad de personas (1 a 6):</label>
+      <input type="number" id="personas" name="personas" value="<%= valores?.personas || '' %>" required>
+    </div>
+
+    <div class="campo">
+      <label for="horario">Turno y horario:</label>
+      <input type="text" id="horario" name="horario" placeholder="Ej: 14:00 a 16:00" value="<%= valores?.horario || '' %>" required>
+    </div>
+
+    <div class="campo">
+      <label for="motivo">Materia o proyecto de estudio:</label>
+      <textarea id="motivo" name="motivo" rows="3" required><%= valores?.motivo || '' %></textarea>
+    </div>
+
+    <button type="submit" class="boton">Confirmar reserva</button>
+    <a href="/reservas" style="margin-left: 1rem; color: #718096; text-decoration: none;">Cancelar</a>
+  </form>
+</section>
