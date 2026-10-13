@@ -3,16 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title><%= titulo %> · Salas de Estudio</title>
+  <title><%= titulo %></title>
   <link rel="stylesheet" href="/css/estilos.css">
 </head>
 <body>
   <header class="encabezado">
-    <a class="marca" href="/">Espacio de Estudio</a>
+    <div class="marca">
+      <span>Sistema de Biblioteca</span>
+      <% if (locals.seccion) { %>
+        <small> — <%= locals.seccion %></small>
+      <% } %>
+    </div>
     <nav>
       <a href="/">Inicio</a>
       <a href="/reservas">Reservas</a>
       <a href="/reservas/nueva">Nueva Reserva</a>
+      <a href="/estado">Estado API</a>
     </nav>
   </header>
 
@@ -21,7 +27,7 @@
   </main>
 
   <footer class="pie">
-    <p>TP 05 · Pipeline de Middleware en Express</p>
+    <p>Reserva de Salas de Estudio &copy; 2026 | ID de Solicitud: <%= solicitudId %></p>
   </footer>
 </body>
 </html>

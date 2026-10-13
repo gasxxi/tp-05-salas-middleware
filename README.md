@@ -1,9 +1,9 @@
 # Trabajo práctico 05
 
 ## Descripción
-En este trabajo práctico construí una aplicación con Express y EJS para gestionar reservas de salas de estudio en una biblioteca universitaria. El foco estuvo puesto en estructurar el pipeline de middleware: registrar peticiones con Morgan, identificar cada solicitud con un código único (SOL-0001), medir tiempos de respuesta de forma no bloqueante con process.hrtime.bigint(), organizar rutas en un express.Router montado bajo /reservas, desacoplar las validaciones en su propia función middleware y manejar páginas no encontradas con código 404 al final de la pila. Toda la información se administra exclusivamente en memoria.
+En este trabajo práctico desarrollé una aplicación web con Node.js y Express para gestionar reservas de salas de estudio en una biblioteca universitaria. El objetivo principal fue construir un pipeline completo de middlewares para controlar, procesar y registrar el ciclo de vida de las solicitudes. La aplicación utiliza el motor de vistas EJS con soporte de layouts y almacena temporalmente los datos en la memoria del servidor.
 
 ## Instalación
-Para descargar e instalar las dependencias (Express, EJS, express-ejs-layouts y Morgan):
+Para instalar las dependencias requeridas (Express, EJS, express-ejs-layouts y Morgan):
 ```bash
 npm install

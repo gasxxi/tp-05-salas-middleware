@@ -1,0 +1,26 @@
+<section>
+  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+    <h2>Reservas registradas</h2>
+    <a href="/reservas/nueva" class="boton">+ Nueva reserva</a>
+  </div>
+
+  <% if (!reservas || reservas.length === 0) { %>
+    <div class="tarjeta">
+      <p>No hay reservas activas en este momento.</p>
+    </div>
+  <% } else { %>
+    <div class="grilla-reservas" style="display: grid; gap: 1rem;">
+      <% reservas.forEach(r => { %>
+        <article class="tarjeta" style="border: 1px solid #ddd; padding: 1rem; border-radius: 8px;">
+          <h3><%= r.sala %></h3>
+          <p><strong>Estudiante:</strong> <%= r.estudiante %></p>
+          <p><strong>Email:</strong> <%= r.email %></p>
+          <p><strong>Fecha:</strong> <%= r.fecha %></p>
+          <p><strong>Turno:</strong> <%= r.turno %></p>
+          <p><strong>Personas:</strong> <%= r.personas %></p>
+          <a href="/reservas/<%= r.id %>" class="boton" style="display: inline-block; margin-top: 0.75rem;">Ver detalle</a>
+        </article>
+      <% }) %>
+    </div>
+  <% } %>
+</section>
